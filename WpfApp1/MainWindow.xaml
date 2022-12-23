@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="HEX Converter" Height="400" Width="300"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+        Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+            <StackPanel>
+
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0 20 10 0"
+                                         PlacementMode="BottomAndAlignRightEdges" StaysOpen="False"
+                                         Height="25">
+                    <StackPanel>
+                        <StackPanel Margin="16 10 0 6" Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                            <TextBlock VerticalAlignment="Center" Text="Dark Mode" />
+                            <ToggleButton Cursor="Hand" ToolTip="Enable Dark Mode" Margin="12 0 8 0"
+                                      x:Name="themeToggle" IsChecked="{Binding IsDarkMode}" Click="toggleTheme"/>
+                        </StackPanel>
+                        <Button x:Name="btn_exit" ToolTip="Close Application" Content="Exit" Click="exitApp"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+
+
+                <TextBox Margin="0 30 0 0" x:Name="HEX" Width="200" FontSize="15"
+                         materialDesign:HintAssist.Hint="Enter HEX code" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Cursor="IBeam"/>
+
+                <Button Margin="0 30 0 0" x:Name="Convert" Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                        Height="30" Width="100" materialDesign:ButtonAssist.CornerRadius="4"
+                        FontSize="10" Content="Convert" Click="Button_Click"/>
+
+                <TextBox Margin="0 30 0 0" x:Name="RGB" Width="200" FontSize="15"
+                         materialDesign:HintAssist.Hint="RGB code" Text="" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Cursor="IBeam"/>
+                
+                
+            </StackPanel>
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+</Window>
